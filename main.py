@@ -46,16 +46,25 @@ def tell_joke():
 
 # Обработка команд
 def process_command(command):
+    twitch_url = 'https://www.twitch.tv'  # Обычный Twitch
+    twitch_channel_url = 'https://m.twitch.tv/michal_ivanich/home'  # URL твоего Twitch-канала
+
     if 'привет' in command:
         speak("Привет! Как я могу помочь?")
     elif 'что ты можешь' in command or 'что ты умеешь' in command:
-        speak("Я могу выполнять различные команды, например, открывать браузер, искать информацию в интернете, проверять время, закрывать приложения и рассказывать шутки.")
+        speak("Я могу выполнять различные команды, например, открывать браузер, искать информацию в интернете, проверять время, закрывать приложения, открывать Twitch и ваш Twitch канал, а также рассказывать шутки.")
     elif 'окей google' in command or 'открой google' in command or 'открой гугл' in command:
         webbrowser.open('https://www.google.com')
         speak("Открываю Google.")
     elif 'открой яндекс' in command or 'открой yandex' in command:
         webbrowser.open('https://www.yandex.ru')
         speak("Открываю Яндекс.")
+    elif 'открой twitch' in command and 'канал' not in command:
+        webbrowser.open(twitch_url)
+        speak("Открываю Twitch.")
+    elif any(phrase in command for phrase in ['открой твич канал', 'открой мой твич канал', 'перейди на мой twitch канал', 'запусти мой twitch', 'мой твич']):
+        webbrowser.open(twitch_channel_url)
+        speak("Открываю ваш Twitch канал.")
     elif 'поиск' in command:
         query = command.replace('поиск', '').strip()
         url = f"https://www.google.com/search?q={query}"
