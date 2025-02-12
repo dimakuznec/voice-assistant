@@ -1,4 +1,4 @@
-import speech_recognition as sr 
+import speech_recognition as sr  
 import pyttsx3
 import os
 import webbrowser
@@ -48,14 +48,15 @@ def tell_joke():
 def process_command(command):
     twitch_url = 'https://www.twitch.tv'  # Обычный Twitch
     twitch_channel_url = 'https://www.twitch.tv/michal_ivanich'  # URL твоего Twitch-канала
+    vk_music_url = 'https://vk.com/music/playlist/-88066503_56557078'  # Ссылка на плейлист с музыкой ВК
 
     # Список случайных ссылок на музыкальные видео с YouTube
     music_urls = [
-        'https://www.youtube.com/watch?v=dQw4w9WgXcQ',  # Например, Rick Astley - Never Gonna Give You Up
-        'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',  # Taylor Swift - Shake It Off
-        'https://www.youtube.com/watch?v=7pL1j2FhV54',  # Katy Perry - Roar
-        'https://www.youtube.com/watch?v=9bZkp7q19f0',  # PSY - Gangnam Style
-        'https://www.youtube.com/watch?v=Zi_XLOBDo_Y'   # LMFAO - Party Rock Anthem
+       'https://www.youtube.com/watch?v=ca0775s0TxM&list=PLdnVyoeE0BGmcolwWA9iBiHvJmkFBy5Ek',
+        'https://www.youtube.com/watch?v=M5QY2_8704o&list=PLdnVyoeE0BGnv9XY8vEXwboZWWfNQEt2V',
+        'https://www.youtube.com/watch?v=qwHyfcCvBFQ&list=PLXrnwb5RgAvxAv_QuIH2xmkJaVL4_akeU',
+        'https://www.youtube.com/watch?v=aaWQwEQ1mdQ&list=PLkA30FL9OreUKQI1w9eQ9D5TE54b5nwUd',
+        'https://www.youtube.com/watch?v=O8AMBwsd4Tw&list=PLgv_1uBd3YEEUJNHR81vBJK5ka0pUco3U'
     ]
 
     if 'привет' in command:
@@ -76,6 +77,9 @@ def process_command(command):
         random_music_url = random.choice(music_urls)
         webbrowser.open(random_music_url)
         speak("Запускаю случайную музыку с YouTube.")
+    elif 'вк музыка' in command or 'включи музыку вк' in command:
+        webbrowser.open(vk_music_url)
+        speak("Открываю музыку из ВКонтакте.")
     elif 'открой twitch' in command and 'канал' not in command:
         webbrowser.open(twitch_url)
         speak("Открываю Twitch.")
