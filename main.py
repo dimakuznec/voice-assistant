@@ -1,4 +1,4 @@
-import speech_recognition as sr
+import speech_recognition as sr 
 import pyttsx3
 import os
 import webbrowser
@@ -59,6 +59,9 @@ def process_command(command):
     elif 'открой яндекс' in command or 'открой yandex' in command:
         webbrowser.open('https://www.yandex.ru')
         speak("Открываю Яндекс.")
+    elif 'открой youtube' in command:
+        webbrowser.open('https://www.youtube.com')
+        speak("Открываю YouTube.")
     elif 'открой twitch' in command and 'канал' not in command:
         webbrowser.open(twitch_url)
         speak("Открываю Twitch.")
