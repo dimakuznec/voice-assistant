@@ -47,7 +47,7 @@ def tell_joke():
 # Обработка команд
 def process_command(command):
     twitch_url = 'https://www.twitch.tv'  # Обычный Twitch
-    twitch_channel_url = 'https://m.twitch.tv/michal_ivanich/home'  # URL твоего Twitch-канала
+    twitch_channel_url = 'https://www.twitch.tv/michal_ivanich'  # URL твоего Twitch-канала
 
     # Список случайных ссылок на музыкальные видео с YouTube
     music_urls = [
