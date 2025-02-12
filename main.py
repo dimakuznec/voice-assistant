@@ -49,6 +49,15 @@ def process_command(command):
     twitch_url = 'https://www.twitch.tv'  # Обычный Twitch
     twitch_channel_url = 'https://m.twitch.tv/michal_ivanich/home'  # URL твоего Twitch-канала
 
+    # Список случайных ссылок на музыкальные видео с YouTube
+    music_urls = [
+        'https://www.youtube.com/watch?v=dQw4w9WgXcQ',  # Например, Rick Astley - Never Gonna Give You Up
+        'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',  # Taylor Swift - Shake It Off
+        'https://www.youtube.com/watch?v=7pL1j2FhV54',  # Katy Perry - Roar
+        'https://www.youtube.com/watch?v=9bZkp7q19f0',  # PSY - Gangnam Style
+        'https://www.youtube.com/watch?v=Zi_XLOBDo_Y'   # LMFAO - Party Rock Anthem
+    ]
+
     if 'привет' in command:
         speak("Привет! Как я могу помочь?")
     elif 'что ты можешь' in command or 'что ты умеешь' in command:
@@ -62,6 +71,11 @@ def process_command(command):
     elif 'открой youtube' in command:
         webbrowser.open('https://www.youtube.com')
         speak("Открываю YouTube.")
+    elif 'запусти музыку' in command:
+        # Выбор случайного музыкального видео из списка
+        random_music_url = random.choice(music_urls)
+        webbrowser.open(random_music_url)
+        speak("Запускаю случайную музыку с YouTube.")
     elif 'открой twitch' in command and 'канал' not in command:
         webbrowser.open(twitch_url)
         speak("Открываю Twitch.")
