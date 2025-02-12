@@ -53,6 +53,9 @@ def process_command(command):
     elif 'окей google' in command or 'открой google' in command or 'открой гугл' in command:
         webbrowser.open('https://www.google.com')
         speak("Открываю Google.")
+    elif 'открой яндекс' in command or 'открой yandex' in command:
+        webbrowser.open('https://www.yandex.ru')
+        speak("Открываю Яндекс.")
     elif 'поиск' in command:
         query = command.replace('поиск', '').strip()
         url = f"https://www.google.com/search?q={query}"
@@ -70,7 +73,7 @@ def process_command(command):
             speak("Закрываю браузер.")
         else:
             speak("Не могу найти указанное приложение.")
-    elif 'расскажи шутку' in command:
+    elif 'расскажи шутку' in command or 'пошути' in command or 'шутка' in command:
         tell_joke()
     else:
         speak("Я не знаю, как выполнить эту команду.")
